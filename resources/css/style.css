@@ -1,0 +1,12 @@
+.header {
+    margin-bottom: none; 
+}
+.container-full {
+    max-width: 70rem;
+}
+
+small, small {
+    font-size: 65%;
+    font-weight: 400;
+    color: #4a4a4a;
+}
