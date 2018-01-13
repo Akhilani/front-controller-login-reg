@@ -7,6 +7,11 @@ use Akhilani\Reg\Database;
 
 class Auth implements AuthInterface
 {
+    public $conn;
+    public function __construct(Database $db)
+    {
+        $this->conn = $db->connect();
+    }
 
     /**
      * @param $email
@@ -29,10 +34,9 @@ class Auth implements AuthInterface
      * @param $password
      * @return mixed
      */
-    protected function getUserByCredentials($email, $password){
-        $db = new Database();
-        $conn = $db->connect();
-        $stmt = $conn->prepare("SELECT * FROM users WHERE email=? AND password=password(?)");
+    protected function getUserByCredentials($email, $password)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM users WHERE email=? AND password=password(?)");
         $stmt->bindValue(1, $email, PDO::PARAM_STR);
         $stmt->bindValue(2, $password, PDO::PARAM_STR);
         $stmt->execute();
@@ -57,12 +61,14 @@ class Auth implements AuthInterface
      * @param $var
      * @return null
      */
-    public function getSession($var){
+    public function getSession($var)
+    {
         if (!session_id()){ session_start(); }
         return isset($_SESSION[$var]) ? $_SESSION[$var] : null;
     }
 
-    public function setSession($var, $value){
+    public function setSession($var, $value)
+    {
         if (!session_id()){ session_start(); }
         return $_SESSION[$var] = $value;
     }

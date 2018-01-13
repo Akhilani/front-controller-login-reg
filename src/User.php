@@ -9,7 +9,16 @@ use Akhilani\Reg\Utilities;
 class User implements UserInterface
 {
     use Utils;
-    public function login(){
+
+    public $conn;
+
+    public function __construct(Database $db)
+    {
+        $this->conn = $this->db->connect();
+    }
+
+    public function login()
+    {
         if(isset($_POST)){
             $auth = new Auth();
             try{
@@ -23,7 +32,8 @@ class User implements UserInterface
         }
     }
 
-    public function register(){
+    public function register()
+    {
         if(isset($_POST)){
             $firstName = $_POST['firstName'];
             $lastName = $_POST['lastName'];
