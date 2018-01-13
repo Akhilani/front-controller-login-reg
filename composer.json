@@ -1,0 +1,19 @@
+{
+  "name": "akhilani/front-controller-login-reg",
+  "description": "Registration and login",
+  "type": "project",
+  "require": {
+    "php": "^7.0"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Akhil Kadangode"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Akhilani\\Reg\\": "src/"
+    }
+  }
+}
