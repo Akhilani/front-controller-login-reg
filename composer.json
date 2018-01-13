@@ -3,7 +3,8 @@
   "description": "Registration and login",
   "type": "project",
   "require": {
-    "php": "^7.0"
+    "php": "^7.0",
+    "phpunit/phpunit": "^6.3"
   },
   "license": "MIT",
   "authors": [
