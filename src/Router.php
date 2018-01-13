@@ -2,7 +2,10 @@
 
 namespace Akhilani\Reg;
 
-
+/**
+ * Class Router
+ * @package Akhilani\Reg
+ */
 class Router implements RouterInterface
 {
 
@@ -10,6 +13,9 @@ class Router implements RouterInterface
     protected $method = 'index';
     protected $params = array();
 
+    /**
+     * Router constructor.
+     */
     public function __construct()
     {
         if (isset($_GET["controller"])) {
@@ -23,6 +29,10 @@ class Router implements RouterInterface
         }
     }
 
+    /**
+     * @param $class
+     * @return $this
+     */
     public function setClass($class){
         $class = ucfirst(strtolower($class));
         if (!class_exists($class)) {
@@ -31,6 +41,11 @@ class Router implements RouterInterface
         $this->class = $class;
         return $this;
     }
+
+    /**
+     * @param $method
+     * @return $this
+     */
     public function setMethod($method){
         $reflector = new ReflectionClass($this->class);
         if (!$reflector->hasMethod($method)) {
@@ -39,10 +54,16 @@ class Router implements RouterInterface
         $this->method = $method;
         return $this;
     }
+
+    /**
+     * @param array $params
+     * @return $this
+     */
     public function setParams(array $params){
         $this->params = $params;
         return $this;
     }
+
     public function run(){
         call_user_func_array(array(new $this->class, $this->method), $this->params);
     }

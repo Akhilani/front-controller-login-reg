@@ -4,7 +4,10 @@ namespace Akhilani\Reg;
 
 use Akhilani\Reg\Database;
 
-
+/**
+ * Class Auth
+ * @package Akhilani\Reg
+ */
 class Auth implements AuthInterface
 {
     public $conn;
@@ -67,6 +70,11 @@ class Auth implements AuthInterface
         return isset($_SESSION[$var]) ? $_SESSION[$var] : null;
     }
 
+    /**
+     * @param $var
+     * @param $value
+     * @return mixed
+     */
     public function setSession($var, $value)
     {
         if (!session_id()){ session_start(); }

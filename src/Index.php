@@ -5,6 +5,10 @@ namespace Akhilani\Reg;
 use Akhilani\Reg\Utilities;
 use Akhilani\Reg\Auth;
 
+/**
+ * Class Index
+ * @package Akhilani\Reg
+ */
 class Index
 {
     use Utils;

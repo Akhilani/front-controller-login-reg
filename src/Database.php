@@ -2,6 +2,10 @@
 
 namespace Akhilani\Reg;
 
+/**
+ * Class Database
+ * @package Akhilani\Reg
+ */
 class Database implements DatabaseInterface
 {
     public $user = 'testUser';

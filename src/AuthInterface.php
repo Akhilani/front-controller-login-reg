@@ -2,6 +2,10 @@
 
 namespace Akhilani\Reg;
 
+/**
+ * Interface AuthInterface
+ * @package Akhilani\Reg
+ */
 interface AuthInterface
 {
     public function login($email, $password);

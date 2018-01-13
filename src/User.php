@@ -6,16 +6,25 @@ use Akhilani\Reg\Auth;
 use Akhilani\Reg\Database;
 use Akhilani\Reg\Utilities;
 
+/**
+ * Class User
+ * @package Akhilani\Reg
+ */
 class User implements UserInterface
 {
     use Utils;
 
     public $conn;
 
+    /**
+     * User constructor.
+     * @param \Akhilani\Reg\Database $db
+     */
     public function __construct(Database $db)
     {
         $this->conn = $this->db->connect();
     }
+
 
     public function login()
     {
