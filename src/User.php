@@ -18,6 +18,8 @@ class User implements UserInterface
             } catch (\Exception $e){
                 die($e->getMessage());
             }
+        } else {
+            $this->template('/block/layout.php', '/block/login.php');
         }
     }
 
@@ -37,6 +39,8 @@ class User implements UserInterface
             } else {
                 die('Registration unsuccessful');
             }
+        } else {
+            $this->template('/block/layout.php', '/block/register.php');
         }
     }
 }
